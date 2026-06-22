@@ -1,0 +1,167 @@
+<?php
+/** @var Zend_View $this */
+$status    = $this->serviceStatus;
+$version   = $this->escape($this->agentVersion);
+$heartbeat = $this->escape($this->lastHeartbeat);
+$incidents = (int) $this->incidentCount;
+
+$isRunning   = ($status === 'running');
+$statusLabel = $isRunning ? 'Running' : 'Stopped';
+$statusClass = $isRunning ? 'running' : 'stopped';
+?>
+
+<style>
+    .ft-wrap {
+        max-width: 720px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .ft-status-card {
+        background: #fff;
+        border: 1px solid #dce1e6;
+        border-radius: 6px;
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+    .ft-status-card h3 {
+        margin: 0 0 16px;
+        font-size: 16px;
+        color: #333;
+    }
+    .ft-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 24px;
+    }
+    .ft-field label {
+        display: block;
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .ft-field .ft-value {
+        font-size: 15px;
+        color: #222;
+        font-weight: 500;
+    }
+    .ft-badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .ft-badge.running {
+        background: #e6f9ee;
+        color: #1a7d42;
+    }
+    .ft-badge.stopped {
+        background: #fde8e8;
+        color: #b91c1c;
+    }
+    .ft-actions {
+        margin-top: 20px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .ft-actions .btn {
+        padding: 8px 18px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background: #fff;
+        color: #333;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .ft-actions .btn:hover {
+        background: #f5f5f5;
+    }
+    .ft-actions .btn-primary {
+        background: #2563eb;
+        color: #fff;
+        border-color: #2563eb;
+    }
+    .ft-actions .btn-primary:hover {
+        background: #1d4ed8;
+    }
+    .ft-actions .btn-danger {
+        color: #b91c1c;
+        border-color: #fca5a5;
+    }
+    .ft-actions .btn-danger:hover {
+        background: #fef2f2;
+    }
+    .ft-dashboard-link {
+        margin-top: 24px;
+    }
+    .ft-dashboard-link a {
+        color: #2563eb;
+        font-weight: 500;
+        text-decoration: none;
+    }
+    .ft-dashboard-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="ft-wrap">
+
+    <div class="ft-status-card">
+        <h3>Agent Status</h3>
+        <div class="ft-grid">
+            <div class="ft-field">
+                <label>Service</label>
+                <span class="ft-value">
+                    <span class="ft-badge <?php echo $statusClass; ?>">
+                        <?php echo $statusLabel; ?>
+                    </span>
+                </span>
+            </div>
+            <div class="ft-field">
+                <label>Version</label>
+                <span class="ft-value"><?php echo $version; ?></span>
+            </div>
+            <div class="ft-field">
+                <label>Last Heartbeat</label>
+                <span class="ft-value"><?php echo $heartbeat; ?></span>
+            </div>
+            <div class="ft-field">
+                <label>Incidents (24h)</label>
+                <span class="ft-value"><?php echo $incidents; ?></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="ft-status-card">
+        <h3>Service Controls</h3>
+        <div class="ft-actions">
+            <?php if (!$isRunning): ?>
+                <a class="btn btn-primary"
+                   href="<?php echo $this->url(['action' => 'index', 'service_action' => 'start']); ?>">
+                    Start
+                </a>
+            <?php endif; ?>
+            <?php if ($isRunning): ?>
+                <a class="btn"
+                   href="<?php echo $this->url(['action' => 'index', 'service_action' => 'restart']); ?>">
+                    Restart
+                </a>
+                <a class="btn btn-danger"
+                   href="<?php echo $this->url(['action' => 'index', 'service_action' => 'stop']); ?>">
+                    Stop
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <div class="ft-dashboard-link">
+        Open the full <a href="https://dash.flowtriq.com" target="_blank" rel="noopener">Flowtriq Dashboard</a>
+        for detailed traffic analytics, incident history, and mitigation controls.
+    </div>
+
+</div>

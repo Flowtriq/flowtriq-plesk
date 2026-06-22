@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <id>flowtriq</id>
+    <name>Flowtriq DDoS Detection</name>
+    <description>Real-time DDoS detection, alerting, and auto-mitigation for your server.</description>
+    <version>1.0.0</version>
+    <release>1</release>
+    <vendor>Flowtriq Networks Inc.</vendor>
+    <url>https://flowtriq.com</url>
+    <icon>images/icon.png</icon>
+</module>
