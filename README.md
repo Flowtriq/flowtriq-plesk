@@ -17,6 +17,10 @@
   <a href="https://discord.gg/SsTWMYuyGG"><img src="https://img.shields.io/badge/discord-join-5865F2?style=flat-square" alt="Discord"></a>
 </p>
 
+<p align="center">
+  <b><a href="https://flowtriq.com/integrations/plesk">Integration Guide</a></b> | <b><a href="https://flowtriq.com/docs">Documentation</a></b> | <b><a href="https://flowtriq.com/signup">Sign Up</a></b>
+</p>
+
 ---
 
 <p align="center">
@@ -82,7 +86,7 @@ The extension appears in the Plesk panel and shows:
 | **Alerting** | Instant notifications when an incident is detected |
 | **Auto-Mitigation** | Upstream or local firewall rules to drop attack traffic |
 | **Plesk Panel** | Agent status, service controls, and dashboard link |
-| **Web Dashboard** | Full analytics at [app.flowtriq.com](https://app.flowtriq.com) |
+| **Web Dashboard** | Full analytics at [dash.flowtriq.com](https://dash.flowtriq.com) |
 
 ## Requirements
 
@@ -195,11 +199,19 @@ systemctl restart ftagent
 ## Links
 
 - [Flowtriq Website](https://flowtriq.com)
-- [Dashboard](https://app.flowtriq.com)
-- [Documentation](https://docs.flowtriq.com)
+- [Dashboard](https://dash.flowtriq.com)
+- [Documentation](https://flowtriq.com/docs)
 - [Discord Community](https://discord.gg/SsTWMYuyGG)
 - [ftagent on PyPI](https://pypi.org/project/ftagent/)
+
+## Get Started
+
+Start your free 14-day trial at [flowtriq.com/signup](https://flowtriq.com/signup).
 
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+---
+
+Built by [Flowtriq](https://flowtriq.com) - Real-time DDoS detection and mitigation.
