@@ -86,7 +86,7 @@ The extension appears in the Plesk panel and shows:
 | **Alerting** | Instant notifications when an incident is detected |
 | **Auto-Mitigation** | Upstream or local firewall rules to drop attack traffic |
 | **Plesk Panel** | Agent status, service controls, and dashboard link |
-| **Web Dashboard** | Full analytics at [dash.flowtriq.com](https://dash.flowtriq.com) |
+| **Web Dashboard** | Full analytics at [flowtriq.com/dashboard](https://flowtriq.com/dashboard) |
 
 ## Requirements
 
@@ -199,7 +199,7 @@ systemctl restart ftagent
 ## Links
 
 - [Flowtriq Website](https://flowtriq.com)
-- [Dashboard](https://dash.flowtriq.com)
+- [Dashboard](https://flowtriq.com/dashboard)
 - [Documentation](https://flowtriq.com/docs)
 - [Discord Community](https://discord.gg/SsTWMYuyGG)
 - [ftagent on PyPI](https://pypi.org/project/ftagent/)
